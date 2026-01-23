@@ -5,7 +5,7 @@ project:
   # description:
   # keywords: []
   # authors: []
-  github: "https://github.com/jupyter/community"
+  github: &repo-url "https://github.com/jupyter/community-committee"
   plugins:
     - type: "executable"
       path: "plugin/listing.py"
@@ -26,6 +26,9 @@ project:
 
 site:
   template: "book-theme"
+  actions:
+    - title: "View source"
+      url: *repo-url
   options:
     folders: true
     style: "assets/styles/style.css"
