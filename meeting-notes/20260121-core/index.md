@@ -3,7 +3,6 @@ title: "Jupyter Community Committee Meeting"
 description: |
   A bi-weekly gathering of the Community Committee.
 date: "2026-01-21"
-image: "../images/community-meeting.jpg"
 author:
   - name: "The Community Committee"
 categories:
