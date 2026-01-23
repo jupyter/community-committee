@@ -7,7 +7,7 @@ version = "0.1.0"
 
 [tasks]
 preview = "myst start"
-render = "myst build --html"
+render = "myst build --html --strict"
 
 [dependencies]
 mystmd = ">=1.7.0,<2"
