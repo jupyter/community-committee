@@ -53,4 +53,3 @@ Please add new agenda items under the `New agenda items` heading!
     - We want to be a committee. Working groups are short-term.
     - Don't change our name, stay JCB?
 - Emphasis areas / initiatives
-    - 
