@@ -16,6 +16,14 @@ project:
       children:
         - pattern: "meeting-notes/**/*.md"
           hidden: true
+
+  error_rules:
+    - rule: "link-resolves"
+      keys:
+        - "https://docs.google.com/document/d/**"
+      severity: "warn"
+
+
 site:
   template: "book-theme"
   # options:
