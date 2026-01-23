@@ -9,6 +9,9 @@ project:
   plugins:
     - type: "executable"
       path: "plugin/listing.py"
+  exclude:
+    - "_*"
+    - "README.md"
   toc:
     - file: "index.md"
     - file: "charter.md"
