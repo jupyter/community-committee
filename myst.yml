@@ -26,6 +26,6 @@ project:
 
 site:
   template: "book-theme"
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  options:
+    style: "assets/styles/style.css"
+    logo_text: "Jupyter Community Building Committee"
