@@ -3,7 +3,6 @@ title: "Jupyter Community Committee Meeting"
 description: |
   A bi-weekly gathering of the Community Committee.
 date: "2026-01-21"
-image: "../images/community-meeting.jpg"
 author:
   - name: "The Community Committee"
 categories:
@@ -45,7 +44,7 @@ Please add new agenda items under the `New agenda items` heading!
     - Rosio: There's a timeline of preparation steps that are taken before a community call. Could start outlining the dates for that and document it.
     - Host guide: https://github.com/jupyter/jupyter/blob/master/docs/source/community/host-guide.md#before-the-meeting
     - Planning in doc: https://docs.google.com/document/d/1cYhG91X5M8Z-GPQHmDoNmtA7bkQGDamj3iYvRgORnZc/edit?tab=t.0
-    - HackMD for Feb 2026 Call: https://hackmd.io/@LO9atHZCQnWJhKUnBv2UWQ/SkrPUh0rbg
+    - HackMD for Feb 2026 Call: <https://hackmd.io/@LO9atHZCQnWJhKUnBv2UWQ/SkrPUh0rbg>
 - Charter: Needs to be finalized!
     - [Draft](https://docs.google.com/document/d/1Q8Y0FlkUtyDv84ub_xdGo2M6Qa5GIEaHUqJdeTsuyoo/edit?tab=t.0#heading=h.pgzr3goomz8i)
     - [Future home on our team compass](https://jupyter.org/community-committee/charter/)
