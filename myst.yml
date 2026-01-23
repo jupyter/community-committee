@@ -27,5 +27,6 @@ project:
 site:
   template: "book-theme"
   options:
+    folders: true
     style: "assets/styles/style.css"
     logo_text: "Jupyter Community Building Committee"
