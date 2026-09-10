@@ -1,11 +1,16 @@
 name: "Setup / sync meeting notes"
 
 on:
+  # Generate notes every Thursday before the meeting
+  schedule:
+    - cron: "0 5 * * 4"
+
   workflow_dispatch:
     inputs:
       kind:
         type: "choice"
         description: "What kind of meeting?"
+        default: "core"
         options:
           - "core"
       date:
@@ -16,6 +21,12 @@ on:
         required: false
         default: "today"
         type: "string"
+      force:
+        description: |
+          Create the notes PR even if another notes PR is already open.
+        required: false
+        default: false
+        type: "boolean"
 
   issue_comment:  # TODO: Switch to issue comment?
     types:
@@ -31,19 +42,69 @@ permissions:
 
 
 jobs:
+  setup:
+    name: "Resolve inputs and check for an already-open meeting notes PR"
+    if: "github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'"
+    runs-on: "ubuntu-latest"
+    # Set default parameters for below (`inputs` is null for scheduled runs).
+    env:
+      KIND: "${{ inputs.kind || 'core' }}"
+      DATE: "${{ inputs.date || 'today' }}"
+      FORCE: "${{ inputs.force || false }}"
+    outputs:
+      kind: "${{ env.KIND }}"
+      date: "${{ env.DATE }}"
+      should_create: "${{ steps.check.outputs.should_create }}"
+    steps:
+      - name: "Look for an open meeting notes PR"
+        id: "check"
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: |
+          # Only one notes PR per kind should be open at a time to prevent PRs from piling up.
+          # We check for existing PRs by looking branches like YYYY-MM-DD-<kind>-meeting-notes.
+          open_prs="$(
+            gh pr list \
+              --repo "${GITHUB_REPOSITORY}" \
+              --state "open" \
+              --limit 100 \
+              --json "number,headRefName,isCrossRepository" \
+              --jq '[
+                .[]
+                | select(.isCrossRepository | not)
+                | select(.headRefName | test("-" + env.KIND + "-meeting-notes$"))
+                | .number | tostring
+              ] | join(", ")'
+          )"
+          echo "Open ${KIND} meeting notes PRs: ${open_prs:-<none>}"
+
+          if [ -z "${open_prs}" ]; then
+            echo "should_create=true" >> "${GITHUB_OUTPUT}"
+          elif [ "${FORCE}" = "true" ]; then
+            echo "A ${KIND} meeting notes PR is already open (${open_prs}), but force was requested." \
+              >> "${GITHUB_STEP_SUMMARY}"
+            echo "should_create=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "Skipping: a ${KIND} meeting notes PR is already open (${open_prs})." \
+              >> "${GITHUB_STEP_SUMMARY}"
+            echo "should_create=false" >> "${GITHUB_OUTPUT}"
+          fi
+
   create:
     name: "Create PR for meeting notes"
-    if: "github.event_name == 'workflow_dispatch'"
+    needs:
+      - "setup"
+    if: "needs.setup.outputs.should_create == 'true'"
     uses: "mfisher87/hackmd-meeting-notes-action/.github/workflows/create-meeting-notes-pr.yml@main"
     with:
-      date: "${{ inputs.date }}"
-      template_path: ".github/meeting-notes-templates/${{ inputs.kind }}.md"
+      date: "${{ needs.setup.outputs.date }}"
+      template_path: ".github/meeting-notes-templates/${{ needs.setup.outputs.kind }}.md"
       # TODO: Is this the HackMD path or the repo path??
-      output_path: "meeting-notes/%Y%m%d-${{ inputs.kind }}/index.md"
+      output_path: "meeting-notes/%Y%m%d-${{ needs.setup.outputs.kind }}/index.md"
       hackmd_team: "jupyter-community"
-      branch_name: "%Y-%m-%d-${{ inputs.kind }}-meeting-notes"
+      branch_name: "%Y-%m-%d-${{ needs.setup.outputs.kind }}-meeting-notes"
       force_push: true
-      pr_title: "Add ${{ inputs.kind }} meeting notes %Y-%m-%d"
+      pr_title: "Add ${{ needs.setup.outputs.kind }} meeting notes %Y-%m-%d"
       pr_body: |
         Meeting notes initialized at ${env.hackmd_doc_url}.
 
