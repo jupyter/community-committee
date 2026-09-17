@@ -21,10 +21,9 @@ Please add new agenda items under the `New agenda items` heading!
 
 ## Attendees
 
-* Name
-* Name
-* Name
-* Name
+* Serena Bonaretti
+* Jason Grout
+* Celeste Horgan
 
 
 ### Action items
@@ -42,4 +41,18 @@ Please add new agenda items under the `New agenda items` heading!
 
 ### Agenda & notes
 
-- ...
+- Planning for community workshop proposal, assuming it is funded
+  - [Responsibility grid](https://docs.google.com/spreadsheets/d/1TQaRI2-wq_-YGfyW7_h2uvesN-FCgj7vikmAutGQHCU/edit?gid=0#gid=0)
+  - [Process](https://docs.google.com/document/d/1rvHYemI8mgMzkAC7caNV4AeL0bxA4juifycFZSta5uI/edit?tab=t.0#heading=h.kgwuplugbfdz)
+- Can we move our jupyter-community-building-committee@googlegroups.com mailing list to jupyter.org?
+  - community-committee@jupyter.org
+  - community-council@jupyter.org
+  - jcb@jupyter.org
+  - community@jupyter.org
+  - community-building@jupyter.org
+  - community-building-committee@jupyter.org
+- Feedback on https://jasongrout.github.io/medium-archive/pelican/
+- 
+
+
+
