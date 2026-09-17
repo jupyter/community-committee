@@ -52,5 +52,3 @@ Please add new agenda items under the `New agenda items` heading!
   - community@jupyter.org
   - community-building@jupyter.org
   - :checkmark: community-building-committee@jupyter.org
-- 
-- /
