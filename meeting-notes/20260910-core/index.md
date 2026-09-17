@@ -28,7 +28,7 @@ Please add new agenda items under the `New agenda items` heading!
 
 ### Action items
 
-- [ ] ...
+None
 
 
 ### Standing items
@@ -52,7 +52,3 @@ Please add new agenda items under the `New agenda items` heading!
   - community-building@jupyter.org
   - community-building-committee@jupyter.org
 - Feedback on https://jasongrout.github.io/medium-archive/pelican/
-- 
-
-
-
