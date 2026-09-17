@@ -65,7 +65,7 @@ Please add new agenda items under the `New agenda items` heading!
     - Start with mapping out the dilution, then design the future state
     - **THIS COULD BE A COMMUNITY WORKSHOP!!!!**
 - Blog
-    - Experiment: <https://jasongrout.github.io/blog_export>
+    - Experiment: `https://jasongrout.github.io/blog_export`
     - Who needs to be involved in discussion? JCB & Marketing both interested. So Jason emailed everyone!
     - Propose moving to static (Hugo or whatever) blog now
     - How insistent will LF be about Wordpress?
