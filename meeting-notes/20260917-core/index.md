@@ -21,15 +21,15 @@ Please add new agenda items under the `New agenda items` heading!
 
 ## Attendees
 
-* Name
-* Name
-* Name
-* Name
+* Matt
+* Serena
+* Lahari
+* April
 
 
 ### Action items
 
-- [ ] ...
+- [ ] Jason: Create `community-building-committee@jupyter.org` mailing list
 
 
 ### Standing items
@@ -42,4 +42,15 @@ Please add new agenda items under the `New agenda items` heading!
 
 ### Agenda & notes
 
-- ...
+- Organizing the next batch of workshops!
+    - https://docs.google.com/document/d/1rvHYemI8mgMzkAC7caNV4AeL0bxA4juifycFZSta5uI/edit?usp=sharing
+
+- Community mailing list name
+  - community-committee@jupyter.org
+  - community-council@jupyter.org
+  - jcb@jupyter.org
+  - community@jupyter.org
+  - community-building@jupyter.org
+  - :checkmark: community-building-committee@jupyter.org
+- 
+- /
