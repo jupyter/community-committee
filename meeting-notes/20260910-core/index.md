@@ -51,4 +51,4 @@ None
   - community@jupyter.org
   - community-building@jupyter.org
   - community-building-committee@jupyter.org
-- Feedback on https://jasongrout.github.io/medium-archive/pelican/
+- Feedback on `https://jasongrout.github.io/medium-archive/pelican/`
