@@ -21,25 +21,22 @@ Please add new agenda items under the `New agenda items` heading!
 
 ## Attendees
 
-* Name
-* Name
-* Name
-* Name
+* Jason
+* April
+* Serena
 
 
 ### Action items
 
-- [ ] ...
-
-
-### Standing items
-
-- Active initiatives
-    - ...
-- Upcoming initiatives
-    - ...
-
+- [ ] April and Serena - assembling relevant docs from previous workshop cycles, beginning to link them to the responsibility grid
+- [ ] Jason - continue working on the static blog site
 
 ### Agenda & notes
 
-- ...
+- Active initiatives
+    - Community Workshops
+        - We walked through the timeline to run the CfP, select and announce the selected hosts/titles
+        - We captured process notes in our [[planning doc](https://docs.google.com/document/d/1rvHYemI8mgMzkAC7caNV4AeL0bxA4juifycFZSta5uI/edit?tab=t.0#heading=h.kgwuplugbfdz)]
+        - April and Serena are pulling out the relevant docs from previous workshop cycles, starting to link them to the responsibility grid for this time.
+- Follow-up:
+  - [x] Jason created community-building-committee@jupyter.org mailing list
