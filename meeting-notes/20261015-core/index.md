@@ -45,7 +45,7 @@ Please add new agenda items under the `New agenda items` heading!
 - Community workshop CFP -- can we get it out today???
     - Tasks -- see our doc `https://docs.google.com/document/d/1rvHYemI8mgMzkAC7caNV4AeL0bxA4juifycFZSta5uI/edit?tab=t.0` under "October 5":
 		* Make our CFP form
-		* Draft: [https\://docs.google.com/forms/d/19sQk2j9h2GXOZLMPMpTM-JOkSMVBXVkKp5JZYIfzD4k/edit](https://docs.google.com/forms/d/19sQk2j9h2GXOZLMPMpTM-JOkSMVBXVkKp5JZYIfzD4k/edit)
+		* Draft: `https://docs.google.com/forms/d/19sQk2j9h2GXOZLMPMpTM-JOkSMVBXVkKp5JZYIfzD4k/edit`
 		* Write blog post
 		    * Process: *Should* be a private queue for blog posts for initial vetting. Fill out content intake form. Then work in HackMD/GDocs. Then PR (opened by maintainer?)
 		* **Ask LF to update the web presence for community workshops**
