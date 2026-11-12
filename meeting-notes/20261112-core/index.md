@@ -73,7 +73,7 @@ Please add new agenda items under the `New agenda items` heading!
             - Jason: We had a high number of awards early on because there was a large backlog of folks needing recognition. Maybe we more clearly delineate the level of honor this is and trust the electorate to award accordingly instead of limiting the number of awardees
                 - Matt: Allowing unlimited awards creates a community health metric?
                 - https://jupyter.org/governance/distinguished-contributors/#criteria-for-nominating-new-distinguished-contributors
-            - Matt & April: Participation trophies are _good_! We should do more to recognize everyone who contributes. Separte thing?
+            - Matt & April: Participation trophies are _good_! We should do more to recognize everyone who contributes. Separate thing?
                 - April: T-shirts with every single GH handle of everyone for the year
                     - Matt: :star-struck: or a big grid of avatars!
         - How/do we change the voting process?
