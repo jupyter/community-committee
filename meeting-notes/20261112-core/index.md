@@ -51,7 +51,7 @@ Please add new agenda items under the `New agenda items` heading!
         - Should the JupyterHub surey be advertised on the website?
             - Probably yes, more targeted at public audience
     - Leave solicitation open and handle in January?
-    - 
+    -
     - Better workshop budget numbers for Foundation Board
         - Can we reduce from $128k?
             - Yes, this is a high estimate based on potential costs, not historical costs. Most workshops find support from a host organization
@@ -59,8 +59,8 @@ Please add new agenda items under the `New agenda items` heading!
                 - $120,000 = 6 workshops * $20,000
                 - $3,000 = 6 workshops * $500 host recognition
                 - $5,000 = buffer
-            - TODO: Email the foundation to let them know when our CFP closes and that we'll revise our budget once we have an idea what the community has appetite to do. **Promise to get them a follow up by December 1st!** 
-  
+            - TODO: Email the foundation to let them know when our CFP closes and that we'll revise our budget once we have an idea what the community has appetite to do. **Promise to get them a follow up by December 1st!**
+
 - [Distinguished contributor program](https://jupyter.org/governance/distinguished-contributors/)
     - What to do with it?
         - Keep doing?
@@ -84,9 +84,9 @@ Please add new agenda items under the `New agenda items` heading!
         - went from 20 -> 10 -> slots per year
         - Maybe 2-3 is more appropriate
     - $500 reward
-- 
-- 
-- 
-- 
+-
+-
+-
+-
 - Matt: Low network bandwidth on my phone hotspot. Can hear OK so far, but may degrade :)
 - .
