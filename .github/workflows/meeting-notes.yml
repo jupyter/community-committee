@@ -1,9 +1,9 @@
 name: "Setup / sync meeting notes"
 
 on:
-  # Generate notes every Thursday before the meeting
+  # Generate next week's notes every Friday, the day after the Thursday meeting
   schedule:
-    - cron: "0 5 * * 4"
+    - cron: "0 5 * * 5"
 
   workflow_dispatch:
     inputs:
@@ -23,7 +23,7 @@ on:
         type: "string"
       force:
         description: |
-          Create the notes PR even if another notes PR is already open.
+          Create the notes PR even if the maximum number of notes PRs are already open.
         required: false
         default: false
         type: "boolean"
@@ -43,25 +43,26 @@ permissions:
 
 jobs:
   setup:
-    name: "Resolve inputs and check for an already-open meeting notes PR"
+    name: "Resolve inputs and check for already-open meeting notes PRs"
     if: "github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'"
     runs-on: "ubuntu-latest"
     # Set default parameters for below (`inputs` is null for scheduled runs).
     env:
       KIND: "${{ inputs.kind || 'core' }}"
-      DATE: "${{ inputs.date || 'today' }}"
+      DATE: "${{ inputs.date || 'next thursday' }}"
       FORCE: "${{ inputs.force || false }}"
+      MAX_OPEN_PRS: 3
     outputs:
       kind: "${{ env.KIND }}"
       date: "${{ env.DATE }}"
       should_create: "${{ steps.check.outputs.should_create }}"
     steps:
-      - name: "Look for an open meeting notes PR"
+      - name: "Look for open meeting notes PRs"
         id: "check"
         env:
           GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         run: |
-          # Only one notes PR per kind should be open at a time to prevent PRs from piling up.
+          # Only MAX_OPEN_PRS notes PRs per kind should be open at a time to prevent PRs from piling up.
           # We check for existing PRs by looking branches like YYYY-MM-DD-<kind>-meeting-notes.
           open_prs="$(
             gh pr list \
@@ -74,18 +75,19 @@ jobs:
                 | select(.isCrossRepository | not)
                 | select(.headRefName | test("-" + env.KIND + "-meeting-notes$"))
                 | .number | tostring
-              ] | join(", ")'
+              ] | join(" ")'
           )"
-          echo "Open ${KIND} meeting notes PRs: ${open_prs:-<none>}"
+          num_open="$(wc -w <<< "${open_prs}")"
+          echo "Open ${KIND} meeting notes PRs (${num_open}): ${open_prs:-<none>}"
 
-          if [ -z "${open_prs}" ]; then
+          if [ "${num_open}" -lt "${MAX_OPEN_PRS}" ]; then
             echo "should_create=true" >> "${GITHUB_OUTPUT}"
           elif [ "${FORCE}" = "true" ]; then
-            echo "A ${KIND} meeting notes PR is already open (${open_prs}), but force was requested." \
+            echo "${num_open} ${KIND} meeting notes PRs are already open (${open_prs}), but force was requested." \
               >> "${GITHUB_STEP_SUMMARY}"
             echo "should_create=true" >> "${GITHUB_OUTPUT}"
           else
-            echo "Skipping: a ${KIND} meeting notes PR is already open (${open_prs})." \
+            echo "Skipping: ${num_open} ${KIND} meeting notes PRs are already open (${open_prs}); the limit is ${MAX_OPEN_PRS}." \
               >> "${GITHUB_STEP_SUMMARY}"
             echo "should_create=false" >> "${GITHUB_OUTPUT}"
           fi
